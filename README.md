@@ -1,7 +1,7 @@
 # Sudoku Creator is a program used for creating a Sudoku grid.  
 
 ## Method:
-The program solves an empty Sudoku grid (using the same method as in the ```SudokuSolver``` project) and then randomly clears most of the fields (depending on a difficulty level).
+The program solves (using the same method as in the ```SudokuSolver``` project) a Sudoku grid with no clues at all and then randomly clears most of the fields (depending on a difficulty level).
 
 ## Levels:
 There are 3 levels of difficulty:
@@ -10,7 +10,7 @@ There are 3 levels of difficulty:
 * Hard (19 - 24 clues)  
 
 ## Launch:
-* Launch ```RUN.py``` script.  
+* Launch the ```RUN.py``` script.  
 * An executable (.exe) version is available in the ```Release``` folder  
 
 ## Technology:

@@ -1,7 +1,7 @@
 # Sudoku Creator is a program used for creating a Sudoku grid.  
 
 ## Method:
-The program solves an empty Sudoku grid (using the same method as in the ```SudokuSolver``` project) and then clears most of the fields (depending on a difficulty level).
+The program solves an empty Sudoku grid (using the same method as in the ```SudokuSolver``` project) and then randomly clears most of the fields (depending on a difficulty level).
 
 ## Levels:
 There are 3 levels of difficulty:

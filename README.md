@@ -1,4 +1,4 @@
-# Sudoku Creator is a web application, which allows a user to solve an automatically generated Sudoku grid. 
+# Sudoku Creator is a web application, created in Django, which allows a user to solve an automatically generated Sudoku grid. 
 
 ## Features:
 * 3 levels of difficulty:

@@ -1,23 +1,31 @@
-# Sudoku Creator is a program used for creating a Sudoku grid.  
+# Sudoku Creator is a web application, which allows a user to solve an automatically generated Sudoku grid. 
+
+## Features:
+* 3 levels of difficulty:
+  * Easy
+  * Medium
+  * Hard
+* Secured input: Only digits from 1 to 9 are allowed (any other character will be automatically erased).
+* Reset all filled forms.
+* Solution to the current grid.  
 
 ## Method:
-The program solves (using the same method as in the ```SudokuSolver``` project) a Sudoku grid with no clues at all and then randomly clears most of the fields (depending on a difficulty level).
+Application uses own methods to create and solve a Sudoku grid.  
 
-## Levels:
-There are 3 levels of difficulty:
-* Easy (31 - 36 clues)  
-* Medium (25 - 30 clues)  
-* Hard (19 - 24 clues)  
+Solver:
+You can find my solver here: [link](https://github.com/MAXIORBOY/SudokuSolver)  
+
+Creator:
+At first the application solves a Sudoku grid with no clues at all. Then the application randomly removes clue by clue from the solved grid, making sure that the desired level of difficulty is maintained. 
 
 ## Launch:
-* Launch the ```RUN.py``` script.  
-* An executable (.exe) version is available in the ```Release``` folder  
+* From the command line, type: ```python manage.py runserver```. Then launch any internet browser and go the site, which will show up in the command line (by default it should be: 127.0.0.1:8000/).
 
 ## Technology:
-* ```Python``` 3.8  
-* ```matplotlib``` 3.3.2  
+* ```Python``` 3.8
+* ```Django ``` 3.1.2
+* ```numpy``` 1.19.3  
 
-## Screenshots:  
-![SC1](https://user-images.githubusercontent.com/71539614/99212481-6b7b0200-27cb-11eb-8032-aa680b0ea1c7.png)
+## Screenshots: 
+(...)
 
-![SC2](https://user-images.githubusercontent.com/71539614/99212479-6a49d500-27cb-11eb-9ff0-24665c843964.png)

@@ -10,13 +10,13 @@
 * Solution to the current grid.  
 
 ## Method:
-Application uses own methods to create and solve a Sudoku grid.  
+Application uses my own methods to create and solve a Sudoku grid.  
 
 Solver:
 You can find my solver here: [link](https://github.com/MAXIORBOY/SudokuSolver)  
 
 Creator:
-At first the application solves a Sudoku grid with no clues at all. Then the application randomly removes clue by clue from the solved grid, making sure that the desired level of difficulty is maintained. 
+At first the application solves a Sudoku grid with no clues at all. Then the application randomly removes clue by clue from the solved grid, making sure that the desired level of difficulty is maintained. It can be done by monitoring the ```number_of_assumptions``` parameter from the solver.
 
 ## Launch:
 * From the command line, type: ```python manage.py runserver```. Then launch any internet browser and go the site, which will show up in the command line (by default it should be: 127.0.0.1:8000/).

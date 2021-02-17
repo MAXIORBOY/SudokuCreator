@@ -23,7 +23,7 @@ At first the application solves a Sudoku grid with no clues at all. Then the app
 
 ## Technology:
 * ```Python``` 3.8
-* ```Django ``` 3.1.2
+* ```Django``` 3.1.2
 * ```numpy``` 1.19.3  
 
 ## Screenshots: 

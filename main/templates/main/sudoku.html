@@ -1,0 +1,121 @@
+{% extends 'main/base.html' %}
+{% load template_methods %}
+{% block title %} Sudoku Creator {% endblock %}
+{% block content %}
+<script>
+    function highlight(obj, color){
+       var orig = obj.style.borderColor;
+       obj.style.borderColor = color;
+       setTimeout(function(){
+            obj.style.borderColor = orig;
+       }, 3000);
+    }
+</script>
+
+<style>
+    table {
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 36px;
+        table-layout: fixed;
+        overflow: auto;
+        background-color: white;
+        border-collapse: collapse;
+        border-top-width: 10px;
+        border-right-width: 10px;
+        border-left-width: 10px;
+        border-bottom-width: 10px;
+        border-right-style: solid;
+        border-top-style: solid;
+        border-left-style: solid;
+        border-bottom-style: solid;
+        border-color: black;}
+
+    tr, td {
+        border-top-width: 2px;
+        border-right-width: 2px;
+        border-left-width: 2px;
+        border-bottom-width: 2px;
+        border-right-style: solid;
+        border-top-style: solid;
+        border-left-style: solid;
+        border-bottom-style: solid;}
+
+    td:nth-of-type(3n + 0){border-right-width: 5px;}
+    td:nth-of-type(3n + 1){border-left-width: 5px;}
+
+    tr:nth-of-type(3n + 0) > td {border-bottom-width: 5px}
+    tr:nth-of-type(3n + 1) > td {border-top-width: 5px}
+
+    p {
+        width: 42px;
+        height: 42px;
+        color: black;
+        margin-bottom: 0px;
+        margin-top: 0px;}
+
+    textarea {
+        font-size: 36px;
+        font-family: Helvetica, sans-serif;
+        color: blue;
+        overflow: hidden;
+        margin-bottom: 0px;
+        margin-top: 0px;
+        padding-bottom: 0px;
+        padding-top: 0px;
+        padding-left: 0px;
+        padding-right: 0px;}
+
+</style>
+<h1>Difficulty: {{difficulty}}</h1>
+<form method="post" action="/sudoku/">
+    {% csrf_token %}
+    {% return_value 0 as index %}
+    <table id="grid">
+        {% if sudoku_solved_flag %}
+            <script>highlight(document.getElementById('grid'), '#4CAF50');</script>
+        {% else %}
+            {% if button_check_pressed %}
+                <script>highlight(document.getElementById('grid'), '#f44336');</script>
+            {% endif %}
+        {% endif %}
+
+        <tr>
+        {{ formset.management_form }}
+        {% for form in formset %}
+            {% if index|modulo:9 == 0 and index != 0 %}
+                </tr>
+                <tr>
+            {% endif %}
+
+            {% if solution_button_pressed_flag %}
+                <td><p>{{solution|return_value_from_matrix:index}}</p></td>
+            {% else %}
+                {% if generated_sudoku_grid|return_value_from_matrix:index == 0 %}
+                    <td>{{form.as_p}}</td>
+                {% else %}
+                    <td><p>{{generated_sudoku_grid|return_value_from_matrix:index}}</p></td>
+                {% endif %}
+            {% endif %}
+
+            {% increment_value index as index %}
+
+        {% endfor %}
+        </tr>
+    </table>
+    <br>
+    {% if solution_button_pressed_flag or sudoku_solved_flag %}
+        <button class="button disabled", style="background-color: #4CAF50; border-color: #4CAF50;", type="submit", name="button_check", value='1' disabled>CHECK</button>
+        <button class="button disabled", style="background-color: #f44336; border-color: #f44336;", type="submit", name="button_reset", value='2' disabled>RESET</button>
+        <br>
+        <button class="button disabled", style="background-color: #f4b800; border-color: #f4b800;", type="submit", name="button_solution", value='3'disabled>SOLUTION</button>
+        <button class="button", style="background-color: #008CBA; border-color: #008CBA;", type="submit", name="button_next", value='4'>NEXT GRID</button>
+    {% else %}
+        <button class="button", style="background-color: #4CAF50; border-color: #4CAF50;", type="submit", name="button_check", value='1'>CHECK</button>
+        <button class="button", style="background-color: #f44336; border-color: #f44336;", type="submit", name="button_reset", value='2'>RESET</button>
+        <br>
+        <button class="button", style="background-color: #f4b800; border-color: #f4b800;", type="submit", name="button_solution", value='3'>SOLUTION</button>
+        <button class="button", style="background-color: #008CBA; border-color: #008CBA;", type="submit", name="button_next", value='4'>NEXT GRID</button>
+    {% endif %}
+</form>
+{% endblock %}

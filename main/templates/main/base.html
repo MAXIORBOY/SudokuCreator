@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .base {
+            text-align: center;
+            background-color: floralwhite;}
+
+        .button {
+            color: white;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            transition-duration: 0.4s;
+            cursor: pointer;
+            margin-bottom: 5px;
+            border-style: solid;
+            border-width: 2px;
+            font-size: 22px;
+            width: 10%;}
+
+        .button:hover {
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);}
+
+        .disabled {
+            opacity: 0.5;
+            pointer-events: none;}
+
+        body{
+            font-family: Helvetica, sans-serif;}
+
+        ul {
+            text-align: center;
+            list-style-type: none;
+            font-size: 24px;
+            margin: 2px;
+            padding-left: 0px;
+            overflow: hidden;
+            background-color: black;}
+
+        li {
+            color: white;
+            display: block;
+            text-align: center;
+            padding: 16px;}
+
+        li a {
+            text-decoration: none;}
+
+        li a:hover {
+            background-color: #222222;}
+
+        li a:visited{
+            color: white;}
+
+    </style>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>{% block title %}Sudoku Creator{% endblock %}</title>
+        <base href="http://127.0.0.1:8000/"></base>
+    </head>
+        <div style="min-width: 1200px;", id="header">
+            <header>
+                <nav>
+                    <ul>
+                        <li style="float:left">
+                            <a style="display: inline-block;", href=''>
+                                <i style="font-size:60px; padding: 16px;", class="fa">&#xf015;</i>
+                            </a>
+                        </li>
+                        <li style="padding-right: 40%; padding-left: 40%;">
+                            <h1>Sudoku Creator</h1>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+    <body class=base>
+        <div id="main_content">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </body>
+</html>
